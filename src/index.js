@@ -15,4 +15,9 @@ app.get("/", (req, res) => {
 
 app.get("/api/hello", helloController);
 
+//not found
+app.use("**", (req, res) =>
+	res.status(404).json({ message: "Route not found" })
+);
+
 app.listen(PORT, () => console.log("SERVER RUNNING ON PORT ", PORT));

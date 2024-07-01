@@ -14,9 +14,13 @@ export const helloController = async (req, res) => {
 		const clientIP = req.socket.remoteAddress;
 
 		const response = await axios.get(
-			`https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=207.97.27.239`
+			`https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${clientIP}`
 		);
 		const data = await response.data;
+
+		if (!data.location) {
+			return res.status(500).json({ message: "User location not found." });
+		}
 
 		res.status(200).json({
 			client_ip: clientIP,
