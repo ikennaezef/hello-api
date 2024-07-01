@@ -25,7 +25,7 @@ export const helloController = async (req, res) => {
 		res.status(200).json({
 			client_ip: clientIP,
 			location: data?.location?.name,
-			greeting: `Hello, ${visitor_name}, the temperature is ${data?.current?.temp_c} in ${data?.location?.name}.`,
+			greeting: `Hello, ${visitor_name}, the temperature is ${data?.current?.temp_c} degrees Celcius in ${data?.location?.name}.`,
 		});
 	} catch (error) {
 		console.log("Error -->", error?.message);
