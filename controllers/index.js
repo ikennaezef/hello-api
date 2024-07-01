@@ -11,7 +11,8 @@ export const helloController = async (req, res) => {
 				.json({ message: "Visitor name field is missing!" });
 		}
 
-		const clientIP = req.socket.remoteAddress;
+		// const clientIP = req.socket.remoteAddress;
+		const clientIP = req.ip;
 
 		const response = await axios.get(
 			`https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${clientIP}`
