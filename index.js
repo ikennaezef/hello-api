@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { helloController } from "./controllers/index.js";
 
-const PORT = 8000;
+const PORT = 8080;
 
 const app = express();
 app.use(express.json());
